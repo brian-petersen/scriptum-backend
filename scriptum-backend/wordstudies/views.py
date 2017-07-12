@@ -47,10 +47,7 @@ class WordStudyCategoryViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixi
 
     @decorators.detail_route(methods=['POST'])
     def add_verses(self, request, pk=None):
-        # return response.Response(pk)
-        # request.data["category_id"] = int(pk)
         serializer = AddVersesSerializer(data=request.data)
-        # serializer = WordStudyNoteSerializer(data=request.data)
 
         if serializer.is_valid():
             category_id = int(pk)

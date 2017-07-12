@@ -10,7 +10,6 @@ from rest_framework.routers import DefaultRouter
 
 from users.views import UserViewSet
 from wordstudies.views import VerseSearchViewSet, WordStudyViewSet, WordStudyCategoryViewSet, WordStudyNoteViewSet
-# from wordstudies.views import search_verses
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -22,11 +21,7 @@ router.register(r'word-studies-notes', WordStudyNoteViewSet, base_name='wordstud
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^django-rq/', include('django_rq.urls')),
-
     url(r'^api/v1/', include('authentication.urls')),
-
-    # url(r'^api/v1/verses/search/(?P<query>\w+)/$', search_verses),
-
     url(r'^api/v1/', include(router.urls)),
 
     # the 'api-root' from django rest-frameworks default router

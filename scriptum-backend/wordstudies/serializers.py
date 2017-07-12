@@ -25,14 +25,6 @@ class WordStudySerializer(serializers.ModelSerializer):
 
 class WordStudyNoteSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField('wordstudies-notes-detail')
-    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-    # study = serializers.HyperlinkedRelatedField('wordstudies-detail')
-
-    # study_id = serializers.IntegerField(write_only=True)
-
-    # category_id = serializers.IntegerField(write_only=True)
-    # verse_id = serializers.CharField(write_only=True)
-
     verse = VerseSerializer(many=False, read_only=True)
 
     class Meta:
@@ -44,7 +36,6 @@ class WordStudyCategorySerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField('wordstudies-categories-detail')
     study = serializers.HyperlinkedRelatedField(
         view_name='wordstudies-detail',
-        # lookup_field='study_id',
         many=False,
         read_only=True
     )
