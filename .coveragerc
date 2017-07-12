@@ -1,0 +1,10 @@
+[run]
+branch = True
+omit = *migrations*,
+       *urls*,
+       *test*,
+       *admin*,
+       ./scriptum-backend/config/*,
+       ./scriptum-backend/manage.py,
+       ./scriptum-backend/wsgi.py,
+       *__init__*
